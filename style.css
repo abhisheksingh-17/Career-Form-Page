@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #ccc;
+  background-image: url("Background.svg");
 }
 .container {
   max-width: 900px;
@@ -15,10 +15,11 @@ body {
 .apply_box {
   max-width: 600px;
   padding: 20px;
-  background-color: white;
+  background-color: rgb(246, 250, 250);
   margin: 0 auto;
   margin-top: 50px;
-  box-shadow: 4px 3px 5px rgba(1, 1, 1, 0.1);
+  margin-bottom: 50px;
+  box-shadow: 4px black;
   border-radius: 10px;
 }
 
@@ -48,7 +49,7 @@ textarea {
   padding: 6px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 input:focus {
