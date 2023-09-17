@@ -1,0 +1,53 @@
+/* Reset some default browser styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    }
+
+  /* Set background color and text color for the whole page */
+    body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    }
+
+  /* Center content vertically and horizontally */
+    .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+
+  /* Style the thank you message box */
+    .thank_you_box {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+  /* Style the thank you message header */
+    .thank_you_box h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    }
+
+  /* Style the thank you message paragraphs */
+    .thank_you_box p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    }
+
+  /* Style the "Back to Home" link */
+    .thank_you_box a {
+    color: #007bff;
+    text-decoration: none;
+    }
+
+    .thank_you_box a:hover {
+    text-decoration: underline;
+    }
