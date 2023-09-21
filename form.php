@@ -14,7 +14,7 @@ function connectToDatabase($hostname, $username, $password, $database)
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
     }
-    // Check if the table exists or not ,and create it if it does not exist
+
     return $mysqli;
 }
 
@@ -23,7 +23,7 @@ function handleRequestMethod()
 {
     if (!isset($_SERVER['REQUEST_METHOD'])) {
         // Handle the case where REQUEST_METHOD is not set
-        $errorMessage = "Please call index.html first to verify the POST call ";
+        $errorMessage = "Please call index.html first to verify the POST call";
         trigger_error($errorMessage, E_USER_ERROR);
     }
 }
@@ -52,8 +52,16 @@ function handleFormSubmission($mysqli)
         // Handle file upload
         $uploaded_file = handleFileUpload();
 
-        // Insert data into the database
-        insertDataIntoDatabase($mysqli, $first_name, $last_name, $email, $contact, $gender, $graduation, $skills, $linkedin, $experience, $employer, $ctc, $notice, $job_role, $vacancy, $address, $uploaded_file);
+        // Insert data into the database using prepared statements
+        if (insertDataIntoDatabase($mysqli, $first_name, $last_name, $email, $contact, $gender, $graduation, $skills, $linkedin, $experience, $employer, $ctc, $notice, $job_role, $vacancy, $address, $uploaded_file)) {
+            // Data inserted successfully
+            // Redirect to the thank-you page
+            header('Location: thank.html');
+            exit();
+        } else {
+            // Error in executing the query
+            echo "Error in form submission.";
+        }
     }
 }
 
@@ -76,26 +84,26 @@ function handleFileUpload()
     }
 }
 
-// Function to insert data into the database
+// Function to insert data into the database using prepared statements
 function insertDataIntoDatabase($mysqli, $first_name, $last_name, $email, $contact, $gender, $graduation, $skills, $linkedin, $experience, $employer, $ctc, $notice, $job_role, $vacancy, $address, $uploaded_file)
 {
     $sql = "INSERT INTO application (FName, LName, Email, Contact, Gender, Graduation, Skill, LinkedIn, Experience, Employer, CTC, Notice, Role, Medium, Address, CV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $mysqli->prepare($sql);
+
+    if ($stmt === false) {
+        echo "Error in preparing the query.";
+        return false;
+    }
+
     $stmt->bind_param("ssssssssssssssss", $first_name, $last_name, $email, $contact, $gender, $graduation, $skills, $linkedin, $experience, $employer, $ctc, $notice, $job_role, $vacancy, $address, $uploaded_file);
 
     if ($stmt->execute()) {
-        // Data inserted successfully
         $stmt->close();
-        $mysqli->close();
-
-        // Redirect to the thank-you page
-        header('Location: thank.html');
-        exit();
+        return true;
     } else {
-        // Error in executing the query
         echo "Error: " . $stmt->error;
         $stmt->close();
-        $mysqli->close();
+        return false;
     }
 }
 

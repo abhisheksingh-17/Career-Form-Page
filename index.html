@@ -15,6 +15,7 @@
                 Please fill in the form below to apply for the job.
             </p>
             <form action="form.php" method="POST">
+                <div id="errorMessages" class="error"></div>
                 <div class="form_container">
                     <!-- First Name -->
                     <div class="form_control">
@@ -53,7 +54,7 @@
                     <div class="form_control">
                         <label for="contact"> Contact </label>
                         <input
-                            type="tel"
+                            type="text"
                             id="contact"
                             name="contact"
                             placeholder="Enter Contact Number"
@@ -266,7 +267,7 @@
                     <!-- Upload Your CV -->
                     <div class="form_control">
                         <label for="upload"> Upload Your CV </label>
-                        <input type="file" id="upload" name="upload" required />
+                        <input type="file" id="upload" name="upload" accept=".pdf" required />
                     </div>
                 </div>
                 <div class="button_container">
