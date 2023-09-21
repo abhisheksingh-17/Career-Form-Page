@@ -28,15 +28,15 @@ The Career Form Section project is designed to enhance the hiring process, makin
 
 ## Table Of Contents
 
- - [Installation]()
- - [Usage]()
- - [Acknowledgements]()
- - [Technologies Used]()
- - [Code Description]()
- - [Screenshots]()
- - [Future Scope]()
- - [Contributing]()
- - [License]()
+ - [Installation](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#installation)
+ - [Usage](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#usage)
+ - [Acknowledgements](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#acknowledgements)
+ - [Technologies Used](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#technologies-used)
+ - [Code Description](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#code-description)
+ - [Screenshots](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#screenshots)
+ - [Future Scope](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#future-scope)
+ - [Contributing](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#contributing)
+ - [License](https://github.com/abhisheksingh-17/Career-Form-Page/tree/main#license)
 ## Installation
 
 To set up the Career Form project locally or on a web server, follow these steps:
@@ -615,7 +615,7 @@ More in detail-
 
  - $upload_dir = 'uploads/';: This line defines a variable $upload_dir and assigns it the value 'uploads/'. This is the directory where uploaded files will be stored. You need to create this directory on your web server for the file upload to work.
 
- - $uploaded_file = $upload_dir . uniqid() . '_' . $_FILES['upload']['name'];: This line generates a unique filename for the uploaded file. It combines the $upload_dir path, a unique identifier (uniqid()), an underscore '_', and the original filename of the uploaded file ($_FILES['upload']['name']). This ensures that each uploaded file has a unique name in the 'uploads/' directory.
+ - $uploaded_file = $upload_dir . uniqid() . '_' . $_FILES['upload']['name']; : This line generates a unique filename for the uploaded file. It combines the $upload_dir path, a unique identifier (uniqid()), an underscore '_', and the original filename of the uploaded file ($_FILES['upload']['name']). This ensures that each uploaded file has a unique name in the 'uploads/' directory.
 
  - if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploaded_file)) {: This line uses the move_uploaded_file function to move the uploaded file from its temporary location ($_FILES['upload']['tmp_name']) to the desired destination ($uploaded_file).
 
@@ -709,7 +709,7 @@ This code handles form submissions, database connections, and file uploads secur
 
  - Styles are applied to form controls, buttons, and error messages.
 
-6. Thank-You Page (thank.html)
+6.Thank-You Page (thank.html)
 
  - The thank.html page is displayed to users upon successful form submission.
 
@@ -765,7 +765,7 @@ This code handles form submissions, database connections, and file uploads secur
 
  - Admin Panel: Create an admin panel for reviewing and managing job applications submitted through the form. Admins can approve or reject applications.
 
-  -Email Notifications: Implement email notifications to notify applicants when their applications are received and to notify admins when new applications are submitted.
+ - Email Notifications: Implement email notifications to notify applicants when their applications are received and to notify admins when new applications are submitted.
 
  - Database Optimization: Optimize the database schema and queries for better performance, especially if the application is expected to handle a large volume of data.
 
