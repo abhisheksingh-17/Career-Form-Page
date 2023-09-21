@@ -615,7 +615,7 @@ More in detail-
 
  - $upload_dir = 'uploads/';: This line defines a variable $upload_dir and assigns it the value 'uploads/'. This is the directory where uploaded files will be stored. You need to create this directory on your web server for the file upload to work.
 
- - $uploaded_file = $upload_dir . uniqid() . '_' . $_FILES['upload']['name']; : This line generates a unique filename for the uploaded file. It combines the $upload_dir path, a unique identifier (uniqid()), an underscore '_', and the original filename of the uploaded file ($_FILES['upload']['name']). This ensures that each uploaded file has a unique name in the 'uploads/' directory.
+ - $uploaded_file = $upload_dir .. : This line generates a unique filename for the uploaded file. It combines the $upload_dir path, a unique identifier (uniqid()), an underscore '_', and the original filename of the uploaded file ($_FILES['upload']['name']). This ensures that each uploaded file has a unique name in the 'uploads/' directory.
 
  - if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploaded_file)) {: This line uses the move_uploaded_file function to move the uploaded file from its temporary location ($_FILES['upload']['tmp_name']) to the desired destination ($uploaded_file).
 
